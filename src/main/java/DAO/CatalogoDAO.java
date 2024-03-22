@@ -42,6 +42,37 @@ public class CatalogoDAO {
         TypedQuery<Catalogo> searchQuery = em.createQuery("SELECT c FROM Catalogo c WHERE c.codiceISBN=:ISBN", Catalogo.class);
 
         searchQuery.setParameter("ISBN", ISBN);
+        transaction.commit();
+        return searchQuery.getResultList();
+
+    }
+    public List<Catalogo> findCatalogoByYear(long anno){
+        EntityTransaction transaction = em.getTransaction();
+        transaction.begin();
+        TypedQuery<Catalogo> searchQuery = em.createQuery("SELECT c FROM Catalogo c WHERE c.annoDiPubblicazione=:anno", Catalogo.class);
+
+        searchQuery.setParameter("anno", anno);
+        transaction.commit();
+        return searchQuery.getResultList();
+
+    }
+    public List<Catalogo> findCatalogoByAuthor(String autore){
+        EntityTransaction transaction = em.getTransaction();
+        transaction.begin();
+        TypedQuery<Catalogo> searchQuery = em.createQuery("SELECT l FROM Libro l WHERE l.autore=:autore", Catalogo.class);
+
+        searchQuery.setParameter("autore", autore);
+        transaction.commit();
+        return searchQuery.getResultList();
+
+    }
+    public List<Catalogo> findCatalogoByTitle(String autore){
+        EntityTransaction transaction = em.getTransaction();
+        transaction.begin();
+        TypedQuery<Catalogo> searchQuery = em.createQuery("SELECT l FROM Libro l WHERE l.autore=:autore", Catalogo.class);
+
+        searchQuery.setParameter("autore", autore);
+        transaction.commit();
         return searchQuery.getResultList();
 
     }

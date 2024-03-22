@@ -45,6 +45,8 @@ public class Application {
 //        Prestito prestito = new Prestito(utente, elementoPrestato, faker.date().birthday(), faker.date().birthday());
 //        prestitoDAO.savePrestito(prestito);
         catalogoDAO.findCatalogoByNameAndDelete(25725734);
-        System.out.println( catalogoDAO.findCatalogoByISBNQ(35172908));
+        System.out.println("Elemento del catalogo per isbn"+catalogoDAO.findCatalogoByISBNQ(35172908));
+        System.out.println("Elemento del catalogo per anno di pubblicazione"+catalogoDAO.findCatalogoByYear(2016));
+        System.out.println("Elemento del catalogo per autore"+catalogoDAO.findCatalogoByAuthor("Val Bednar"));
     }
 }
