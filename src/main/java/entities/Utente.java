@@ -17,11 +17,23 @@ public class Utente {
 
     private List<Prestito> catalogo;
 
+    public Utente() {
+    }
 
     public Utente(String nome, String cognome, Date dataNascita, long numeroDiTessera) {
         this.nome = nome;
         this.cognome = cognome;
         this.dataNascita = dataNascita;
         this.numeroDiTessera = numeroDiTessera;
+    }
+
+    @Override
+    public String toString() {
+        return "Utente{" +
+                "nome='" + nome + '\'' +
+                ", cognome='" + cognome + '\'' +
+                ", dataNascita=" + dataNascita +
+                ", numeroDiTessera=" + numeroDiTessera +
+                '}';
     }
 }
