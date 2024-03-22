@@ -12,10 +12,14 @@ public class Catalogo {
     protected String titolo;
     protected int annoDiPubblicazione;
     protected int numeroPagine;
-    @OneToMany(mappedBy = "catalogo")
-    protected List<Prestito> prestiti;
+    @OneToOne(mappedBy = "elementoPrestato")
+    protected Prestito prestito;
 
     public Catalogo(long codiceISBN,String titolo, int annoDiPubblicazione, int numeroPagine) {
+        this.codiceISBN = codiceISBN;
+        this.titolo = titolo;
+        this.annoDiPubblicazione = annoDiPubblicazione;
+        this.numeroPagine = numeroPagine;
     }
 }
 

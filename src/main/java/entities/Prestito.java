@@ -1,18 +1,20 @@
 package entities;
 
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
+@Entity
 public class Prestito {
+    @Id
+    @GeneratedValue
+    private long codicePrestito;
 
     @ManyToOne
     @JoinColumn(name = "utente_numeroDiTessera")
     private Utente utente;
 
-    @OneToMany
+    @OneToOne
     @JoinColumn(name = "catalogo_codiceISBN")
 
     public Catalogo elementoPrestato;
