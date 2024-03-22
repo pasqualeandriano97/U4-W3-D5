@@ -66,12 +66,12 @@ public class CatalogoDAO {
         return searchQuery.getResultList();
 
     }
-    public List<Catalogo> findCatalogoByTitle(String autore){
+    public List<Catalogo> findCatalogoByTitle(String titolo){
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
-        TypedQuery<Catalogo> searchQuery = em.createQuery("SELECT l FROM Libro l WHERE l.autore=:autore", Catalogo.class);
+        TypedQuery<Catalogo> searchQuery = em.createQuery("SELECT l FROM Libro l WHERE  LOWER(l.titolo) LIKE LOWER(:titolo)", Catalogo.class);
 
-        searchQuery.setParameter("autore", autore);
+        searchQuery.setParameter("titolo", titolo+"%");
         transaction.commit();
         return searchQuery.getResultList();
 
